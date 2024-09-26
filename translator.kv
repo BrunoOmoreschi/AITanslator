@@ -1,0 +1,73 @@
+<TranslatorLayout>:
+    cols: 2
+    row_default_height: 200
+    spacing: 10
+
+    # First Column (80% width)
+    GridLayout:
+        cols: 1
+        size_hint_x: 0.8
+
+        # Inputs section
+        GridLayout:
+            cols: 2
+            size_hint_y: None
+            height: 100
+
+            # Input language selector
+            Spinner:
+                id: input_lang
+                text: 'Select Input Language'
+                values: app.languages
+                size_hint: (0.8, 1)
+                font_name: 'fonts/NotoSans-Regular.ttf'
+
+            # Text input box
+            TextInput:
+                id: text_input
+                hint_text: "Enter text to translate"
+                size_hint: (0.8, 1)
+                font_name: 'fonts/NotoSans-Regular.ttf'
+                height: 50
+
+        # Outputs section
+        GridLayout:
+            cols: 2
+            size_hint_y: None
+            height: 100
+
+            # Output language selector
+            Spinner:
+                id: output_lang
+                text: 'Select Output Language'
+                values: app.languages
+                size_hint: (0.8, 1)
+                font_name: 'fonts/NotoSans-Regular.ttf'
+
+            # Translated text output (now using TextInput)
+            TextInput:
+                id: translated_text
+                text: "Translated text will appear here"
+                readonly: True  # Make it read-only
+                multiline: True  # Allow multiple lines of output
+                size_hint: (0.8, 1)
+                font_name: 'fonts/NotoSansCJK-Regular.ttc'
+                height: 100
+                background_color: [0, 0, 0, 0]  # Optional: Make the background transparent
+                foreground_color: [1, 1, 1, 1]  # Text color (white in this case)
+
+    # Second Column (Translate Button with 200px height and centered)
+    GridLayout:
+        size_hint_x: 0.2
+        size_hint_y: None
+        height: 200
+
+        Button:
+            text: "Translate"
+            font_size: 32
+            color: 0, 0, 0, 1
+            background_normal: ''
+            background_color: 1, 0.84, 0, 1  # Golden yellow
+            size_hint: (1, None)
+            height: 200
+            on_press: app.translate_text()
