@@ -1,6 +1,7 @@
 """Tradutor de frases em vários idiomas. Funcionando! Usa o modelo M2M100-418."""
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
+
 # Função para exibir o menu de opções
 def show_menu():
     print("\nMenu de Opções:")
@@ -79,7 +80,7 @@ source_lang = ""
 target_lang = ""
 
 # Carregar o modelo e o tokenizer
-model_name = "facebook/m2m100_418M"
+model_name = "D:/AI/LLMs or SLMs/translationModel/models--facebook--m2m100_418M/snapshots/55c2e61bbf05dfb8d7abccdc3fae6fc8512fd636"
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
