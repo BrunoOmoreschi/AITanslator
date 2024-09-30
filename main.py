@@ -32,7 +32,13 @@ class TranslatorApp(App):
         input_lang = self.root.ids.input_lang.text.split(' - ')[0]  # Get language code
         output_lang = self.root.ids.output_lang.text.split(' - ')[0]  # Get language code
 
-        model_name = "facebook/m2m100_418M"
+        # Load the model and tokenizer
+
+        #Load the model with internet connection
+        #model_name = "facebook/m2m100_418M"
+
+        #Uses a previously downloaded model.
+        model_name = "D:/AI/LLMs or SLMs/translationModel/models--facebook--m2m100_418M/snapshots/55c2e61bbf05dfb8d7abccdc3fae6fc8512fd636"
         model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
         tokenizer = AutoTokenizer.from_pretrained(model_name)
 
